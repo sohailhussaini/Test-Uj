@@ -1,0 +1,81 @@
+- git add {file_name}
+
+- git add .  
+
+- git commit -m "your comments"
+
+- git pull {or} git pull "https://github.com/sohailhussaini/Test-Uj.git"   - AlwAYS run this command first
+
+- git push
+     or
+  git push origin master
+     or
+  git push origin "https://github.com/sohailhussaini/Test-Uj.git" master
+
+- git revert      - to revert from local repo to staging
+
+- git revert --mixed    - to push back the file from staging to workspace area
+
+- git status
+
+- git log
+  git log -1
+  git log -1
+  git log --untill yyyy-mm-dd
+  git log --since yyyy-mm-dd
+  git log {commit id or first 7 letters of CID}
+
+- git show
+  git show CID
+
+- git checkout    - show in which branch you are
+  git chekout -b {branch name}  - to create and switch to the new branch  name
+
+- git branch {branch name}    - to create a new branch
+  git branch -d {branch name}    - to delete branch 
+
+- git merge branch1   - if you are in master then, you are merging branch1 to master
+
+- git push "https://github.com/sohailhussaini/Test-Uj.git" branch1    - to push branch1 to github as a new branch
+and there you can review the code and merge it in master of github by adding pull and merge request in git hub
+
+- git blame my_file     — See who changed what and when in my_file.
+
+- git diff     — See all file changes locally. A file name can be appended to show changes for only one file
+
+- git reflog         — Show a log of changes to the local repository’s HEAD. Good for finding lost work
+
+- git reset --hard HEAD         — Discard staged and unstaged changes since the most recent commit
+
+- git checkout my_commit— Discard unstaged changes since my_commit
+
+- git revert my_commit —Undo the effects of changes in my_commit. revert makes a new commit when it undoes the changes
+
+- git clean -n —Delete untracked files in the local working directory.
+The -n flag is for a dry run where nothing is deleted.
+Use the -f flag to actually remove the files.
+Use the -d flag to remove untracked directories
+
+- Add shortcuts for Git commands by adding the following aliases to your .bash_profile.
+alias gs='git status '
+alias ga='git add '
+alias gaa='git add -A '
+alias gb='git branch '
+alias gc='git commit '
+alias gcm='git commit -m '
+alias go='git checkout 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
