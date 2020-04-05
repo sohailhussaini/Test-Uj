@@ -39,6 +39,8 @@
 - git push "https://github.com/sohailhussaini/Test-Uj.git" branch1    - to push branch1 to github as a new branch
 and there you can review the code and merge it in master of github by adding pull and merge request in git hub
 
+- git push -d orgin {branch name}     - to delete branch in github from gitbash
+
 - git blame my_file     — See who changed what and when in my_file.
 
 - git diff     — See all file changes locally. A file name can be appended to show changes for only one file
