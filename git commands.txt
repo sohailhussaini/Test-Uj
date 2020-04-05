@@ -36,10 +36,26 @@
 
 - git merge branch1   - if you are in master then, you are merging branch1 to master
 
+- git merge --abort     - when there is conflict in merging master to master1. ex: f1(in master) and f1(in master1 branch)
+same file name in two diff branch having diff data and this will raise a conflict, then to avoid such situation use this 
+command.
+
+how to fix:
+open the file f1 using : VI f1
+delete unecceasary code and then save the file
+then git add
+git commit -m
+
+this will resolve the issue
+
+
 - git push "https://github.com/sohailhussaini/Test-Uj.git" branch1    - to push branch1 to github as a new branch
 and there you can review the code and merge it in master of github by adding pull and merge request in git hub
 
 - git push -d orgin {branch name}     - to delete branch in github from gitbash
+
+
+
 
 - git blame my_file     — See who changed what and when in my_file.
 
@@ -59,6 +75,9 @@ Use the -f flag to actually remove the files.
 Use the -d flag to remove untracked directories
 
 - Add shortcuts for Git commands by adding the following aliases to your .bash_profile.
+
+git config --global alias.lo "log --oneline"
+
 alias gs='git status '
 alias ga='git add '
 alias gaa='git add -A '
@@ -68,7 +87,14 @@ alias gcm='git commit -m '
 alias go='git checkout 
 
 
+how to remove above config shortcuts
+git config --global --unset alias.lo
 
+to check all shortcuts list
+git config --list
+
+to remove username or mail id
+git config --global --unset user.name
 
 
 
