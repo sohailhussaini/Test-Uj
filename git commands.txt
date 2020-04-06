@@ -139,7 +139,7 @@ Difference b/w merge and rebase, while using merge command there will be a commi
 After this check with git log --oneline, there wont be any commit id wont be avilable
 
 
-Test
+
 
 
 
