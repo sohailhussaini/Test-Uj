@@ -4,6 +4,9 @@
 
 - git commit -m "your comments"
 
+- git commit -am "modifed files"   -- adds and commit only modified files directly using single file.Cannot be used for
+ new file
+
 - git pull {or} git pull "https://github.com/sohailhussaini/Test-Uj.git"   - AlwAYS run this command first
 
 - git push
@@ -36,26 +39,10 @@
 
 - git merge branch1   - if you are in master then, you are merging branch1 to master
 
-- git merge --abort     - when there is conflict in merging master to master1. ex: f1(in master) and f1(in master1 branch)
-same file name in two diff branch having diff data and this will raise a conflict, then to avoid such situation use this 
-command.
-
-how to fix:
-open the file f1 using : VI f1
-delete unecceasary code and then save the file
-then git add
-git commit -m
-
-this will resolve the issue
-
-
 - git push "https://github.com/sohailhussaini/Test-Uj.git" branch1    - to push branch1 to github as a new branch
 and there you can review the code and merge it in master of github by adding pull and merge request in git hub
 
 - git push -d orgin {branch name}     - to delete branch in github from gitbash
-
-
-
 
 - git blame my_file     — See who changed what and when in my_file.
 
@@ -75,26 +62,83 @@ Use the -f flag to actually remove the files.
 Use the -d flag to remove untracked directories
 
 - Add shortcuts for Git commands by adding the following aliases to your .bash_profile.
-
-git config --global alias.lo "log --oneline"
-
 alias gs='git status '
 alias ga='git add '
 alias gaa='git add -A '
 alias gb='git branch '
-alias gc='git commit '
+alias gc='git commit ' 
 alias gcm='git commit -m '
 alias go='git checkout 
 
 
-how to remove above config shortcuts
-git config --global --unset alias.lo
+Git stash is like temp storage area, after you add files using git add, then we can move files to stash memory
 
-to check all shortcuts list
-git config --list
+- git stash list    - show stash list if available
 
-to remove username or mail id
-git config --global --unset user.name
+- git stash save "stash1"    - just like commit
+
+- git stash show -p stash@{x}      - where x can be any stash numnber. ie., 0 is default. this is like git show command
+in which it shows what is available in that stash memory
+
+
+- git stash apply   -- revert the stash data back to staging area and will not delete the stash memory
+
+- git stash apply stash@{2} - applies the stash{2} memory to staging area and will not delete the memory
+
+- git stash pop    -- revert the stash data back to staging area and re-use the stash memory for other data
+
+- git stash drop  - delete the first stash ie,. stash{0} data
+
+- git stash drop stash@{2} stash@{3}  - delete data of stash{2} and stash{3}
+
+
+Ignore files :
+
+Inorder to ignore files to add or commit ie., which is not required to move to github like log files etc.
+1) Create a file with name 
+
+   vi .gitignore 
+
+2) Mention all files names which need to ignore like b1t1 etc and save the file 
+3) git add
+4) git commit -m "ignore files"
+5) Now if we check git status the files added in ignore file will not show in the commit list or git show, it will ignore 
+even the changes are made.
+
+
+Tags :
+
+IT is used like branch which will control the versions/releases
+
+- git tag  or git tag --list       -- show if any release or tag available
+
+- git tag V1.1   -- V1.1 is the tag name given by us and by using this command will tag till the last commit.
+
+- git tag tag_name  commit id        -- partail tag till commit id
+
+- git log --oneline  or git log -1       -- to check till where the tag is created
+
+- git push origin V1.1        - to push the tag to github. This push one tag
+
+- git push --tags               - will push all tags available.
+
+- git push origin -d V1.1     - top remove the tag from the githubt
+
+- git tag -d V1.1   - to remove the tag in local memory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
