@@ -140,7 +140,10 @@ After this check with git log --oneline, there wont be any commit id wont be avi
 
 
 
-
+git pull == merge + fetch
+- git fetch    -- to pull the data from git hub and save in local repository. but it wii not add data of local file.
+we need to merge 
+git merge origin/Head
 
 
 
