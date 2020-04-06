@@ -71,6 +71,8 @@ alias gcm='git commit -m '
 alias go='git checkout 
 
 
+Git stash :
+
 Git stash is like temp storage area, after you add files using git add, then we can move files to stash memory
 
 - git stash list    - show stash list if available
