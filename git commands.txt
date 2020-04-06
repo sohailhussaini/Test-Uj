@@ -129,13 +129,14 @@ IT is used like branch which will control the versions/releases
 - git tag -d V1.1   - to remove the tag in local memory
 
 
-
-Test
-
-
-
+Rebase :
+Difference b/w merge and rebase, while using merge command there will be a commit id.While using rebase there wont
+ generete commit id 
 
 
+- git rebase master1    -- if you are in master branch and looking to merge master1
+
+After this check with git log --oneline, there wont be any commit id wont be avilable
 
 
 
