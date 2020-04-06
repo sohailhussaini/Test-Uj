@@ -146,6 +146,28 @@ we need to merge
 git merge origin/Head
 
 
+- git diff file1         - show diff in single file
+- git diff file1 file2    - shows diff in btw 2 files
+- git diff master master1   - show diff in btw 2 master
+
+
+- git commit --amend -m "comments..."     - to change the last comments of commit
+
+
+- git clean -f    - to delete files created in workspace of local repo
+
+
+
+To delete files from github and local repo :
+
+1) delete the files from  local repo
+2) git status
+3) git add .
+4) git commit -m "deleted files"
+5) git push
+
+files will be removed from local and github
+
 
 
 
