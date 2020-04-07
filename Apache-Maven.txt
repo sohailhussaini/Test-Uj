@@ -1,0 +1,49 @@
+Instalation:
+
+1) Install JDK latest version. 
+	Copy the folder path from C:/program files/java
+	Set path, right click on my computer-->properties-->new-->add name: JAVA_HOME & path:C:/program files/java
+		in below vairable click on path and add --> ;C:/program files/java/bin
+2) Download apache maven and copy the path
+	Set path, right click on my computer-->properties-->new-->add name: M2_HOME & path:C:/program files/M2
+		in below vairable click on path and add --> ;C:/program files/M2/bin
+
+3) To setup required plugin 
+- mvn archetype:generate  (command in CMD)   (just like git init)
+	type default project number shown:1586
+	type default version number shown : 8
+	Group id --> Type devops(or any name)     - this will be the build name
+	artifact id --> Tpype Project-1
+	Snapshot (ie., version name) --> keep deafult
+	Package devops --> keep default
+	Type Y
+
+
+
+
+
+
+
+
+In Maven there are 3 repositories
+1 - Local repository  (C:\Users\DELL\.m2)
+2 - Central repository  -->https://repo.maven.apache.org/maven2/
+3 - Remote repository  
+
+
+To download the cmd mvn archetype:generate data in a file, use
+- mvn archetype:generate > test-file
+
+
+This is used to select which type of project which will be suitable to our project. Ideally Developers will select all these.
+If not then devops engg has to create project with the suitable project plugins and folder structure. Copy this folders and
+move the folders to github and have the link handy for jenkins automation of building process.
+Developers also will use the same github link and add there code files in the same repository. Once all are done, then 
+for the relase time, all these files will go for build process thru maven.
+
+
+
+
+
+
+
