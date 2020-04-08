@@ -35,11 +35,42 @@ To download the cmd mvn archetype:generate data in a file, use
 - mvn archetype:generate > test-file
 
 
-This is used to select which type of project which will be suitable to our project. Ideally Developers will select all these.
+- Important notes :    This is used to select which type of project which will be suitable to our project. Ideally Developers will select all these.
 If not then devops engg has to create project with the suitable project plugins and folder structure. Copy this folders and
 move the folders to github and have the link handy for jenkins automation of building process.
 Developers also will use the same github link and add there code files in the same repository. Once all are done, then 
 for the relase time, all these files will go for build process thru maven.
+
+
+
+
+To create a simple java project using maven, you need to open command prompt and
+Prasad +91-8802399967 devopstraining2015@gmail.com
+run the archetype:generate command of mvn tool.
+Syntax
+The syntax to generate the project architecture is given below:
+mvn archetype:generate -DgroupId=groupid -DartifactId=artifactid
+-DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=booleanValue
+Example:2
+The example to generate the project architecture is given below:
+mvn archetype:generate -DgroupId=com.javatpoint -DartifactId=CubeGeneratorWeb
+-DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+- mvn test
+
+- mvn compile
+
+- mvn package    --- to build the project
+ 
+- mvn clean      -- to remove test cases or target folder from the project
+
+- mvn verify
+
+- mvn deploy
+
+
+
 
 
 
