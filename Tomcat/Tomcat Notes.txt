@@ -1,0 +1,7 @@
+Installation steps: 
+
+1) Need JDK for sure
+
+2) Download tomcat software from tomcat.apache.org
+	download from core .zip file
+	extract files
