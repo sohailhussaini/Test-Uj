@@ -1,0 +1,18 @@
+Plugin names:
+
+Rebuilder : Used while a job having parameters. 2017 2018 etc and if you want to build the last parameter. 
+
+build pipeline : to use pipeline jobs
+
+disk usage plugin : to know disk usage
+
+job config history plugin  : shows history of job an changes made. Just like version control
+
+delete log : shows log of deleted
+
+clone workspace plugin : to clone workspace or file which was configured in job-1 and have the same in job-2(cloning).
+
+backup plugin : to take backup
+
+build metrics : shows pass fail of jobs in metric format
+
