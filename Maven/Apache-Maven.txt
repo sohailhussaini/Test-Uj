@@ -69,6 +69,36 @@ mvn archetype:generate -DgroupId=com.javatpoint -DartifactId=CubeGeneratorWeb
 
 - mvn deploy
 
+- mvn dependency:tree
+
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::Creating Sample Project:::::::::::::::::::::::::::::::::::::::::::::::
+
+Link :   https://mkyong.com/maven/how-to-create-a-web-application-project-with-maven/
+
+
+!) creating project : maven-archetype-webapp
+
+> mvn archetype:generate -DgroupId=com.mkyong.web -DartifactId=java-web-project -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+2) changing POM file with required dependency
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
