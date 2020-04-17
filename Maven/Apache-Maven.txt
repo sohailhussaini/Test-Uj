@@ -190,7 +190,17 @@ Link :   https://mkyong.com/maven/how-to-create-a-web-application-project-with-m
 
 
 
-3) 
+3) Display the project dependencies.
+
+ > mvn dependency:tree
+ 
+ This will download all the dependencies which are mentioned in the POM file
+ 
+ 
+ 4) check with the above link for steps.
+ 
+ 
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
