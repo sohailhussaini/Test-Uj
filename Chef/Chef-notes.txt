@@ -1,0 +1,154 @@
+Instalation steps:
+
+
+
+
+1)  
+
+A) How to create a file in any folder thru a recipe.
+
+In chef-repo folder create text file with name "Test.rb" file. Write command
+
+
+
+ file "C:\Users\DELL\Desktop\git\Test-Uj\Chef\test.rb" do
+ action :create
+ end
+
+
+save the file and the command in terminal
+> chef-apply test.rb
+
+
+B) If you want to add content 
+
+ file "C:/Users/DELL/Desktop/git/Test-Uj/Chef/hello-file.rb" do
+ action :create
+ content 'hello world'
+ end
+
+
+c) If you want to add delete the file
+
+ file "C:\Users\DELL\Desktop\git\Test-Uj\Chef\test.rb" do
+ action :delete
+ end
+
+
+d) If you want to add delete the file
+
+ directory "C:\Users\DELL\Desktop\git\Test-Uj\Chef\test" do
+ action :create
+ end
+
+save the file and the command in terminal
+> chef-apply test.rb
+
+
+2)
+How to create a cookbook in workstation
+
+
+go to C:\Users\DELL\Desktop\New folder\chef-starter\chef-repo\cookbooks
+ and we can create cookbooks here
+
+
+in above directory
+> chef generate cookbook name(ex:test)
+
+it create a test dir
+
+
+we can create recipices in C:\Users\DELL\Desktop\New folder\chef-starter\chef-repo\cookbooks\test\recipes
+Add your code to default.rb 
+
+
+3)
+create a file in client machine
+
+
+4)
+To test cookbook
+>  knife cookbook test cookbookname
+
+
+5)
+to upload cookbook into server
+> knife cookbook upload cookbookname
+
+
+6)
+in chef servers
+select Node and Add cookbook to runlist 
+
+7) 
+Go to cleint server
+> chef-client
+
+
+
+::::::::::::::::::::::::PACKAGE :::::::::::::::::
+
+package "name" dp
+action :install
+end
+
+
+To create a package - httpd
+
+package "httpd" do
+action :install
+end
+
+
+Services ::
+
+sevice "httpd" do
+action :enable
+end
+
+service "httpd" do
+action :start
+end
+
+or
+
+
+sevice "httpd" do
+action [:enable, :start]
+end
+
+
+file "/var/www/html/index.html" do
+action :create
+content '<html>hello word
+</html>'
+end
+
+
+To remove the package
+
+action: uninstall
+
+
+To stop service
+action: [:enable, :stop]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
