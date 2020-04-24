@@ -1,0 +1,127 @@
+In ansible server machine
+
+> yum install epel-release
+
+> yum update
+
+> yum install git python pythin-devel python-pip openssl ansible
+
+> ansible --version
+
+> cd/etc/ansible
+
+> vi ansible.cfg   ---->confg file
+
+in the above file 
+
+enable or remove # symbol at 
+inventory
+sudo_user
+
+in the same file host   ---> we need to define ip addr, 
+
+> vi host
+
+[local]            ----->grp name
+localhost
+
+[batch-23]         ----->grp name-2
+197.167.7.1        ------> give all  ip servers of client machine
+197.167.23.2
+
+
+
+
+need to create a user in server and clinet machine with same name and no passward so that they can connect thru ssh
+
+> useradd ansible
+> passwd ansible
+
+need to give full permission to ansible
+
+> vi sudo    
+(under allow root line)
+ansible ALL=(ALL)        NOPASSWD: ALL
+
+
+create the same ansible user in clinet machine too....
+> useradd ansible
+> passwd ansible
+
+need to give full permission to ansible
+
+> vi sudo    
+(under allow root line)
+ ansible ALL=(ALL)        NOPASSWD: ALL
+
+
+
+Need t0 create passwd less authentication. Go to server
+> su - ansible
+
+Need to create a ssh key in home/ansible
+> sudo ssh-keygen -y
+this will create a .ssh file in which all secret key are stored
+
+need to copy this key in client server
+> ssh-copy-id ansible@193.343.34.5(client ip address)  -y
+
+
+how to create a localhost grp to login without passwrd.
+> ssh-copy-id localhost -y
+
+entire grp machine will connect without  pass
+> ssh localhost
+
+how to execute ansible in a grp 
+> ansible batch-23 -a "ls -l /opt"
+it will show the client(197.167.7.1) /opt dir files
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
