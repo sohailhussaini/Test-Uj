@@ -136,6 +136,56 @@ action: [:enable, :stop]
 
 
 
+:::::::::::::::::::::::::Data Bag::::::::::::::::::::::::::::::
+
+
+knife data bag create users
+
+knife data bag create groups
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::: json ::::::::::::::::
+
+format:
+
+{
+"id":       "devops",
+"comment":  "test-user",
+"uid":       2006,
+"gid":      0,           (where 0 is root group id)
+"home":     "/opt/devops",
+"shell":    "bin/bash"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
