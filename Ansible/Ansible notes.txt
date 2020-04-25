@@ -81,6 +81,60 @@ it will show the client(197.167.7.1) /opt dir files
 
 
 
+> sudo ansible all -m ping              ----> m is module
+
+> sudo ansible batch-23 -m ping     ---> checks the connection between batch-23
+
+
+> sudo ansible all -a "ls -l /opt"   ---> to check the ls in opt directory
+
+> sudo ansible all -a "cat /etc/passwd"    ---> read the passwd file in localhost and batch-23 servers
+
+> sudo ansible batch-23 -a "touch /opt/ansible-test"
+
+> sudo ansible batch-23 -m copy -a "src=/opt/f1 dest=/opt/"        ----> copying f1 in src to dest folder ie., server is src
+and dest is cleint machine
+
+> sudo ansible batch-23 localhost -m yum -s -a "name=git state=present (or) latest"  ===> will download git of present version
+
+> sudo all -a "git --version"  --->show version of git installed in all machines
+
+> sudo ansible batch-23 localhost -m yum -s -a "name=git state=absent"   ---> to unistall git
+
+> sudo all -m user -a "name=devops-ansible"    ---> create user
+
+> sudo all -m user -a "name=devops-ansible state=absent"    ---> delete user
+
+
+
+
+:::::::::::::::::::::::::::::::: Playbook ::::::::::::::::::::::::::::::::::::::::::::
+
+
+> mkdir playbook
+> sudo vim sample.yml
+
+...
+- host: all                   -----> wher to install
+ become: yes                 -----> givng sudo permissoin
+ tasks:                      -----> waht task to perform
+  - name: installing git package      ---> gving name
+    yum: name=git state=latest        ---> installation command
+    yum: name=wget state=latest 
+
+
+save file.
+
+to execute the above file
+> ansible-playbook sample.yml
+
+::::::::::::::::::::::: Documnets ::::::::::;
+
+yum doc : https://docs.ansible.com/ansible/latest/modules/yum_module.html#yum-module
+
+All modules : https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html
+
+playbook doc : https://docs.ansible.com/ansible/latest/user_guide/playbooks.html
 
 
 
@@ -89,6 +143,20 @@ it will show the client(197.167.7.1) /opt dir files
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
