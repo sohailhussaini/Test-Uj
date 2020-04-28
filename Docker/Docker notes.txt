@@ -1,0 +1,66 @@
+
+Q) How is docker useful in this world?
+
+A) We hav a project which use jenkins, oracle db, java, linux, maven, mongodb etc.
+   if we install all these in one single server and we create Users and give these details
+   to the specific prgmers and there is a chance that person might disturb other
+   software as well as all are in one server, ex: jenkins devlper can disturb or crash 
+   oracle db as he might try learning on main server.
+   or this may also over burden the server perf too.
+  
+   To avoid this
+   we will saperate all software. Ex: jenmkins one server, mongodb one server oracle one server etc..
+   but this will over budget and we need to install os for all which will take more space and time
+
+   To avoid all such cases
+   We use Docker. In this we can create images which use only req libs/bins which are in MBs
+   and create containers. Time taken for setup is also less
+  
+   VM ware run on Image/os installed kernel, ex: ubuntu kernel
+   Docker runs on kernel which is used in machine, eg: windows for mine
+     
+--------------------------------------------------------------------------------------------------------
+
+> docker run hello-world     ---> to test if docker installed correctly
+
+> docker version 
+
+> docker images        -----> show all images
+
+> docker images rm image_name   -----> removes image
+
+> docker search ubuntu   ---> search all avaialbe ubuntu in docker hub
+
+> docker pull centos     ----> pull  the latest image of centos
+
+> docker run -it centos    ---> logs into centos server
+
+> docker run -it -d centos      ---> -d , pulls the image if not avilable in your machine.
+and will directly run the container without entering into it
+
+> yum update -y              ---> update yum in centos
+
+> yum install git       ---> install git in centos
+
+> exit                ---> to come out of container
+
+> docker ps -a    ---> show container id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
