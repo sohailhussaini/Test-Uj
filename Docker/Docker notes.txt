@@ -27,6 +27,20 @@ A) We hav a project which use jenkins, oracle db, java, linux, maven, mongodb et
 
 > docker images        -----> show all images
 
+> docker ps          ---> shows running containers
+
+> docker ps --all ---> shows all containers
+
+> docker ps -a    ---> show container id info
+
+
+
+-------> docker run = docker create + docekr start   <---> its combi of two commands and show log
+------> docker create hello-world             ----> doesnot show log
+------> docekr start -a id_of_hello-world  --->> to start a new container or restart exited one
+ 
+> docekr system prune          ---> delete all containers
+
 > docker images rm image_name   -----> removes image
 
 > docker search ubuntu   ---> search all avaialbe ubuntu in docker hub
@@ -44,7 +58,273 @@ and will directly run the container without entering into it
 
 > exit                ---> to come out of container
 
-> docker ps -a    ---> show container id
+
+
+> docker run busybox echo hi there
+
+> docker logs container-id
+
+> Docker start container-id
+
+> docker stop container-id      --> after 10secs if dosnt stop, then kill cmd will start autom
+
+> docker kill container-id
+
+> docker rm container-id
+
+> docker exec -it container-id second_command   --> it = interactive mode
+   -i   ---> sysinput   takes input comand
+   -t   ---> sysoutput  takes output comand
+  docker exec -it redis-container-id     redis-cli  --> opens redis-cli
+
+> docker exec -i -t   redis-container-id  sh  --> sh = logs in conatiner
+
+> docker run -it busybox sh
+
+
+
+
+**** There are two meathods to create own image. 1) using Dockerfile 2) command meathod
+
+::::::::::::::  How to create own image  -- Using Dockerfile meathod ::::::::::::::
+
+
+Creating an image which will run redis server when executed
+
+- create a dir and save a file with name "Dockerfile"
+
+> mkdir redis-image
+> touch Dockerfile
+
+
+--------------   Write the code -----
+
+# Use an existing docker image as a base
+FROM alpine
+
+
+# Dowload and install a dependency
+RUN apk add --update redis
+
+
+# Tell the image what to do when it starts as a container
+CMD["redis-server']
+
+---------------  save the file -----------
+
+> docker build .
+
+or 
+
+> docker build -t docker-whale -f Dockerfile.txt .     -----> taken from this site
+                http://containertutorials.com/alpine/alpine-apache-server-static-site.html
+
+It will create an image id for the code given at the last line
+Ex : 
+Successfully built 5f6b7e75c7c3               ------> IMG id
+Successfully tagged docker-whale:latest       ------> IMG tag name
+
+------------- run the container with image id ---------------------------
+
+> docker run last_image_id      
+Ex:  docker run 5f6b7e75c7c3
+
+or with tag name : docker-whale:latest
+> docker run tag_name
+Ex: docker run docker-whale:latest
+
+
+This will run the cmd redis-server and will start the redis server.
+
+:::::::::::::::::::::::::::::::::::  END ::::::::::::::::::::::::::::::::
+
+--------------------------------------------------------------------------------
+
+:::::::::::::; Tagging the above docker id ::::::::::::::::::::::::
+
+> docker build -t stephengrider/redis:latest   ----> 
+-t = tag
+Below two will act as project name
+stepehngrider = Your docker_id ....      u can give any name. 
+redis = Repo/Project name    .....tagnme which will be given at last and below img id
+Latest = version name
+
+
+
+-------------------------------------------------------------------------
+
+IMPORTANT
+**********  How to create own docker image. how does a docker image is created and behind function *****
+
+check vedio of "The Build Process in DEtails" in udemy 
+https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/learn/lecture/11436706#overview
+
+Lecture: 32 and 33 (the build process in details & A brief recap)
+
+---------------------------------------------------------------------
+
+
+::::::::::::::  How to create own image  -- Using command meathod ::::::::::::::
+------------------- Manual image generation with Docker commit --------------------
+
+YOu can get the code from : lecture 48 (complete code for section-4)
+
+> docker run -it alpine sh      ---> just like FROM cmd
+# apk add --update redis        ---> just like RUN cmd
+
+
+> docker ps
+Take the latest container_id of the above
+
+
+> docker commit -c 'CMD["redis-server']" above container-id     ---> Just like CMD cmd
+Just like git commit
+Now take the image id which is executed
+
+> docker run above-id
+
+
+_______________________________________________________________________________________
+
+
+:::::::::::::::::::: Creating a NodeJS appl and wrapping in docker container :::::::
+
+1) create NodeJS web ap
+2) create a dockerfile
+3) build image from docker file
+4) run image as a container
+5) connect to web app from a browser
+
+Step -1
+> cd ..
+> mkdir simpleweb
+> touch package.json
+Code:
+
+{
+ "dependencies": 
+    {"express": "*"},
+ "scripts": 
+    {"start": "node index.js"}
+}
+
+Save the file
+
+
+> touch index.js
+code:
+
+const express = require("express");
+
+
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hi Nazneen. I LOVE YOU BABY");
+});
+
+
+
+app.listen(8080, () => {
+  
+   console.log("Listening on port 8080");
+
+});
+
+
+
+save the file
+
+> touch Dockerfile
+code:
+
+# Specify a base image
+
+FROM node:alpine
+
+
+WORKDIR /usr/app
+
+
+
+# Install some depenendencies
+
+COPY ./package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+
+
+# Default command
+
+CMD ["npm", "start"]
+
+save the file
+
+> docker build .
+or
+> docker build -t simplewebserver -f Dockerfile.txt .
+
+> docker run -p 8082:8080 simplewebserver:latest
+
+Goto web browser and type 192.168.99.100:8082
+
+Out wil display
+
+---------------------------
+***** copy a path from local to container > COPY ./ ./  ===> first ./ = local path $ second ./ is for container path to save
+--------------------------------------------
+****** IMP ******
+Reminder for Windows Home / Docker Toolbox Students
+updated 4-14-2020
+
+This just a friendly reminder to all of the students using Docker Toolbox that 
+we will not be able to use localhost in any of the applications going forward. 
+Instead, we will need to use 192.168.99.100.
+
+When we access the Node application in the browser in next lecture video, 
+we would type 192.168.99.100:8080
+----------------------------------------------------------------
+
+****** IMP ********
+***********  Valid port for containers - Incoming requests *********
+Port 8078 to 8082
+
+Ex: > docker run -p 8082:8080 simplewebserver-8080:latest
+8082 ---> our localhost port ie., 192.168.99.100:8082 (incoming port to localhost) 
+8080  ---> given in index.js file (port inside container) 
+
+Go to web browser and type "192.168.99.100:8082" . U wil find output
+
+**************** We can also change target port in the file and localhost port too..********
+Ex: In the index.js file change the port from 8080 to 7000
+run command
+> docker run -p 5000:7000 container-name:latest
+goto web browser and type :   192.168.99.100:5000
+Output will display
+
+-----------------------------------------------------------------
+
+::::::::::::::::::::::::   Docker Compose ::::::::::::::::::::::::::::
+
+
+> docker-compose up      --> just like "docker run myimage" comd
+
+> docker-compose up --build   --> Just like " docker build ." + "docker run myimage" cmd
+
+> docker-compose up -d   --> to start all containers
+
+> docker-compose stop    --> to stop all containers
+
+> docker-compose down    --> to remove all containers
+
+> docker-compose ps    --> show all dokcer compose containers
+
+
+
 
 
 
