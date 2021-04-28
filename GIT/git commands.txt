@@ -44,19 +44,19 @@ and there you can review the code and merge it in master of github by adding pul
 
 - git push -d orgin {branch name}     - to delete branch in github from gitbash
 
-- git blame my_file     — See who changed what and when in my_file.
+- git blame my_file     â€” See who changed what and when in my_file.
 
-- git diff     — See all file changes locally. A file name can be appended to show changes for only one file
+- git diff     â€” See all file changes locally. A file name can be appended to show changes for only one file
 
-- git reflog         — Show a log of changes to the local repository’s HEAD. Good for finding lost work
+- git reflog         â€” Show a log of changes to the local repositoryâ€™s HEAD. Good for finding lost work
 
-- git reset --hard HEAD         — Discard staged and unstaged changes since the most recent commit
+- git reset --hard HEAD         â€” Discard staged and unstaged changes since the most recent commit
 
-- git checkout my_commit— Discard unstaged changes since my_commit
+- git checkout my_commitâ€” Discard unstaged changes since my_commit
 
-- git revert my_commit —Undo the effects of changes in my_commit. revert makes a new commit when it undoes the changes
+- git revert my_commit â€”Undo the effects of changes in my_commit. revert makes a new commit when it undoes the changes
 
-- git clean -n —Delete untracked files in the local working directory.
+- git clean -n â€”Delete untracked files in the local working directory.
 The -n flag is for a dry run where nothing is deleted.
 Use the -f flag to actually remove the files.
 Use the -d flag to remove untracked directories
@@ -156,7 +156,7 @@ git merge origin/Head
 
 - git clean -f    - to delete files created in workspace of local repo
 
-
+- git cheer-pick commitID -- This is used to merge only till wanted commit of any new branch. Ex: i have 1,2,3 commit in dev branch. In master i want to merge only till 2 commit of dev branch so use in master branch : git cheery-pick "commitid of 2"
 
 To delete files from github and local repo :
 
